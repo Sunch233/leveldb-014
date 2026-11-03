@@ -62,6 +62,9 @@ class LEVELDB_EXPORT WriteBatch {
   // releases. It is intended for LevelDB usage metrics.
   size_t ApproximateSize() const;
 
+  // MCPE compatibility: allocation capacity, distinct from encoded size.
+  size_t Capacity() const { return rep_.capacity(); }
+
   // Copies the operations in "source" to this batch.
   //
   // This runs in O(source size) time. However, the constant factor is better
